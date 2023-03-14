@@ -1,8 +1,10 @@
-name: example-release
+name: push-main
 on:
   push:
-    tags:
-      - ps-deploy-action@*
+    branches:
+      - main
+
+concurrency: push-main
       
 jobs:
   release:
