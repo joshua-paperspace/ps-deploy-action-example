@@ -2,7 +2,7 @@ name: example-release
 on:
   push:
     tags:
-      - my-demo-app@*
+      - ps-deploy-action@*
       
 jobs:
   release:
