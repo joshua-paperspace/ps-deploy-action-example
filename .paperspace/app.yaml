@@ -1,0 +1,7 @@
+enabled: true
+name: Demo
+image: :image
+port: 8888
+resources:
+  replicas: 1
+  instanceType: P4000
