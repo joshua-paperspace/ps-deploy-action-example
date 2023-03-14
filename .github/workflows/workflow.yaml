@@ -1,8 +1,8 @@
-name: fixture-release
+name: example-release
 on:
   push:
     tags:
-      - deployment-fixture@*
+      - my-demo-app@*
       
 jobs:
   release:
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Set docker tag name
-        run: echo "::set-output name=DOCKER_TAG_NAME::$(echo $GITHUB_REF | cut -d / -f 3 | sed 's/deployment-fixture@//')"
+        run: echo "::set-output name=DOCKER_TAG_NAME::$(echo $GITHUB_REF | cut -d / -f 3 | sed 's/my-demo-app@//')"
         id: docker-tag-name
 
       - name: Set up docker build
@@ -30,13 +30,13 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            paperspace/deployment-fixture:${{ steps.docker-tag-name.outputs.DOCKER_TAG_NAME }}
+            joshuapaperspace/streamlit-nginx:${{ steps.docker-tag-name.outputs.DOCKER_TAG_NAME }}
 
-      - uses: paperspace/deploy-action@main
+      - uses: paperspace/deploy-action@v1.0
         name: Deploy to Paperspace
         id: deploy
         env:
-          API_KEY: ${{ secrets.PAPERSPACE_API_KEY }}
+          PAPERSPACE_API_KEY: ${{ secrets.PAPERSPACE_API_KEY }}
         with:
           projectId: p5rlnw4tcga
-          image: paperspace/deployment-fixture:${{ steps.docker-tag-name.outputs.DOCKER_TAG_NAME }}
+          image: joshuapaperspace/streamlit-nginx:${{ steps.docker-tag-name.outputs.DOCKER_TAG_NAME }}
