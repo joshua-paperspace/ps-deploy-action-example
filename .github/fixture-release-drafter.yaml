@@ -1,6 +1,6 @@
-name-template: ps-deploy-action@$NEXT_PATCH_VERSION
-tag-template: ps-deploy-action@$NEXT_PATCH_VERSION
-tag-prefix: ps-deploy-action@
+name-template: ps-deploy-action-example@$NEXT_PATCH_VERSION
+tag-template: ps-deploy-action-example@$NEXT_PATCH_VERSION
+tag-prefix: ps-deploy-action-example@
 template: |
   ## What’s Changed
   $CHANGES
