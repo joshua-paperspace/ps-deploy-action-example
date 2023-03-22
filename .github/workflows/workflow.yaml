@@ -2,8 +2,8 @@ name: fixture-release
 on:
   push:
     tags:
-      - deployment-fixture@*
-      
+      - ps-deploy-action@*
+
 jobs:
   release:
     name: Release
