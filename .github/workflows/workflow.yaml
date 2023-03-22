@@ -30,7 +30,7 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            joshuapaperspace/streamlit-nginx:${{ steps.docker-tag-name.outputs.DOCKER_TAG_NAME }}
+            joshuapaperspace/fastapi-resnet:${{ steps.docker-tag-name.outputs.DOCKER_TAG_NAME }}
 
       - uses: paperspace/deploy-action@v1.0
         name: Deploy to Paperspace
@@ -39,4 +39,4 @@ jobs:
           PAPERSPACE_API_KEY: ${{ secrets.PAPERSPACE_API_KEY }}
         with:
           projectId: p5rlnw4tcga
-          image: joshuapaperspace/streamlit-nginx:${{ steps.docker-tag-name.outputs.DOCKER_TAG_NAME }}
+          image: joshuapaperspace/fastapi-resnet:${{ steps.docker-tag-name.outputs.DOCKER_TAG_NAME }}
