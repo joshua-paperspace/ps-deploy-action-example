@@ -1,0 +1,19 @@
+name: push-main
+on:
+  push:
+    branches:
+      - main
+
+concurrency: push-main
+
+jobs:
+  tag:
+    name: Tag
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.PSBOT_GITHUB_TOKEN }}
+        with:
+          config-name: fixture-release-drafter.yaml
+          publish: true

@@ -1,10 +1,8 @@
-name: push-main
+name: fixture-release
 on:
   push:
-    branches:
-      - main
-
-concurrency: push-main
+    tags:
+      - deployment-fixture@*
       
 jobs:
   release:
