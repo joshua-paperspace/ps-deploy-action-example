@@ -1,15 +1,10 @@
-FROM golang:1.15 as builder
+FROM paperspace/fastapi-deployment:latest
 
 WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod download
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
+COPY main.py preprocess.py resnet.py requirements.txt ./
+COPY config ./config
 
-COPY --from=builder /app/main .
-EXPOSE 8888
-CMD ["./main"]
+RUN pip3 install -U pip && pip3 install -r requirements.txt
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
