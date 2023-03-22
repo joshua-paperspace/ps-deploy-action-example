@@ -2,7 +2,7 @@ enabled: true
 name: Demo
 image: :image
 containerRegistry: jr-dockerhub-private
-port: 8080
+port: 80
 resources:
   replicas: 1
   instanceType: P4000
