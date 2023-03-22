@@ -1,4 +1,4 @@
-# ps-deploy-action
+# ps-deploy-action-example
 
 ### Workflow Steps ### 
 - Workflow push-main.yaml (in .github/workflows) is listening for a push on the main branch of the repo to run
