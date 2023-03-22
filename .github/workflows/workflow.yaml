@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Set docker tag name
-        run: echo "::set-output name=DOCKER_TAG_NAME::$(echo $GITHUB_REF | cut -d / -f 3 | sed 's/demo-streamlit-app@//')"
+        run: echo "::set-output name=DOCKER_TAG_NAME::$(echo $GITHUB_REF | cut -d / -f 3 | sed 's/ps-deploy-action@//')"
         id: docker-tag-name
 
       - name: Set up docker build
