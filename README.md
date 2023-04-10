@@ -15,7 +15,10 @@
     - GitHub action `paperspace/deploy-action@v1.0` creates or updates a deployment on Paperspace using the deployment spec .paperspace/app.yaml
 
 
+### Changes ### 
+
 The items in the template scripts that would need to change for each user are:
+
 - Set the GitHub action secrets for the following variables (GitHub repo -> Settings -> Secrets and variables -> Actions -> Secrets):
     - DOCKERHUB_TOKEN
     - DOCKERHUB_USERNAME
