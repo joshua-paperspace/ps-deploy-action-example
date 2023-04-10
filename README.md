@@ -20,10 +20,10 @@
 The items in the template scripts that would need to change for each user are:
 
 - Set the GitHub action secrets for the following variables (GitHub repo -> Settings -> Secrets and variables -> Actions -> Secrets):
-    - DOCKERHUB_TOKEN
-    - DOCKERHUB_USERNAME
-    - PAPERSPACE_API_KEY
-    - PSBOT_GITHUB_TOKEN
+    - DOCKERHUB_TOKEN (Access key or token to authorize action on the Docker Hub repository)
+    - DOCKERHUB_USERNAME (Username to authorize action on the Docker Hub repository)
+    - PAPERSPACE_API_KEY (Paperspace API Key with access to the team/project specified)
+    - PSBOT_GITHUB_TOKEN (GitHub access token with appropriate permissions)
 - .github/fixture-release-drafter.yaml
     - tag template (lines 1, 2, 3) to be named appropriately for the use case (i.e. ps-deploy-action-example@) 
 - .github/workflows/workflow.yaml
