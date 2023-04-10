@@ -13,3 +13,19 @@
         - PSBOT_GITHUB_TOKEN
     - workflow.yaml builds the docker image with the Dockerfile in the repo. This Dockerfile copies the application files and model files in the repo into the container
     - GitHub action `paperspace/deploy-action@v1.0` creates or updates a deployment on Paperspace using the deployment spec .paperspace/app.yaml
+
+
+The items in the template scripts that would need to change for each user are:
+- Set the GitHub action secrets for the following variables (GitHub repo -> Settings -> Secrets and variables -> Actions -> Secrets):
+    - DOCKERHUB_TOKEN
+    - DOCKERHUB_USERNAME
+    - PAPERSPACE_API_KEY
+    - PSBOT_GITHUB_TOKEN
+- .github/fixture-release-drafter.yaml
+    - tag template (lines 1, 2, 3) to be named appropriately for the use case (i.e. ps-deploy-action-example@) 
+- .github/workflows/workflow.yaml
+    - tag name (line 5) to match the tag name set in fixture-release-drafter.yaml
+    - tag name (line 15) to match tag name on line 5 (i.e. ps-deploy-action-example@)
+    - image name (line 33) for the desired repository and image name of the container registry (e.g. Docker Hub) being used (i.e. joshuapaperspace/fastapi-resnet)
+    - projectId (line 41) to the user's project in Paperspace (i.e. p5rlnw4tcga)
+    - image name (line 42) to match the image name on line 33 (i.e. joshuapaperspace/fastapi-resnet)
